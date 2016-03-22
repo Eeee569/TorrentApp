@@ -24,6 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
+        android:layout_above="@+id/sendbtn"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="120dp"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
