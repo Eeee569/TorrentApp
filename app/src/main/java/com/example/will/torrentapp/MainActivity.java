@@ -1,11 +1,14 @@
 package com.example.will.torrentapp;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +18,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        String host = "";
         Log.i(TAG,"appCreated");
+
+        try {
+            Uri data = getIntent().getData();
+            host = data.getHost();
+            Log.i(TAG, host + " URI pull worked");
+        }catch (Exception e){
+            Log.i(TAG, host + " URI pull did not work");
+        }
+        EditText uriData = (EditText)this.findViewById(R.id.editText);
+        Button sendToServer = (Button)this.findViewById(R.id.sendbtn);
+
+        uriData.setText(host);
 
 
     }
